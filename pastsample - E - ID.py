@@ -1,21 +1,19 @@
 # https://atcoder.jp/contests/past-sample/tasks/abc113_c
 
+import io
 
-'''
-2 3
+s = '''2 3
 1 32
 2 63
 1 12
-
 000001000002
 000002000001
 000001000001
 '''
 
-import sys
-
-n, m = map(int, sys.stdin.readline().split())
-py = map(int, sys.stdin.read().split())
+f = io.StringIO(s)
+n, m = map(int, f.readline().split())
+py = map(int, f.read().split())
 py = list(zip(py, py))
 py = sorted(enumerate(py), key=lambda x: x[1])
 dic = {}
