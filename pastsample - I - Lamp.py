@@ -2,9 +2,9 @@
 
 import numpy as np
 import sys
-read = sys.stdin.buffer.read
-readline = sys.stdin.buffer.readline
-readlines = sys.stdin.buffer.readlines
+read = sys.stdin.read
+readline = sys.stdin.readline
+readlines = sys.stdin.readlines
 
 # H,W = map(int,readline().split())
 # grid = np.frombuffer(read(),'S1').reshape(H,-1)[:,:W]
@@ -14,7 +14,6 @@ grid = np.array([[b'#', b'.', b'.', b'#', b'.', b'.'],
                  [b'.', b'.', b'.', b'.', b'#', b'.'],
                  [b'#', b'.', b'#', b'.', b'.', b'.']]
                 )
-print(grid.dtype)
 
 
 def cnt_U(grid):
@@ -30,14 +29,9 @@ def cnt_U(grid):
     return U
 
 
-print(grid)
 x = cnt_U(grid) + cnt_U(grid[::-1])[::-1]
-print(x)
 grid = grid.T
-print(grid)
 y = cnt_U(grid) + cnt_U(grid[::-1])[::-1]
-print(y)
 x += y.T
-print(x)
 answer = x.max() - 3
 print(answer)
