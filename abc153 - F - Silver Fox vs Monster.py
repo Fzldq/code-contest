@@ -19,13 +19,13 @@ total_damage = 0
 ans = 0
 for pos, hp in monsters:
     while bomb_area:
-        print(bomb_area, bomb_power, total_damage)
+        # print(bomb_area, bomb_power, total_damage)
         area = bomb_area[0]
         if area < pos:
             bomb_area.popleft()
             power = bomb_power.popleft()
             total_damage -= power
-            print(total_damage)
+            # print(total_damage)
         else:
             break
     if hp <= total_damage:
