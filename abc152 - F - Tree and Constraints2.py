@@ -1,3 +1,5 @@
+# https://atcoder.jp/contests/abc152/tasks/abc152_f
+
 import numpy as np
 import io
 
