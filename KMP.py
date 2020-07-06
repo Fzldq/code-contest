@@ -32,3 +32,7 @@ def kmp(s, p):
             i -= j - 1
             j = 0
     return lst
+
+
+s, p = input().split()
+print(kmp(s, p))
