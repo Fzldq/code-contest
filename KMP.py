@@ -1,38 +1,18 @@
 # 返回全部匹配位置
 
 
-def p_arr(p):
-    n = len(p)
-    arr = [0] * n
-    arr[0] = -1
-    k, j = -1, 0
-    while j < n - 1:
-        if k == -1 or p[j] == p[k]:
+def kmp(s):
+    n = len(s)
+    pi = [0] * n
+    for i in range(1, n):
+        j = pi[i - 1]
+        while j > 0 and s[i] != s[j]:
+            j = pi[j - 1]
+        if s[i] == s[j]:
             j += 1
-            k += 1
-            arr[j] = k
-        else:
-            k = arr[k]
-    return arr
+        pi[i] = j
+    return pi
 
 
-def kmp(s, p):
-    slen, plen = len(s), len(p)
-    i, j = 0, 0
-    arr = p_arr(p)
-    lst = []
-    while i < slen - 1 and j < plen:
-        if j == -1 or s[i] == p[j]:
-            i += 1
-            j += 1
-        else:
-            j = arr[j]
-        if j == plen:
-            lst.append(i - j)
-            i -= j - 1
-            j = 0
-    return lst
-
-
-s, p = input().split()
-print(kmp(s, p))
+s = input()
+print(kmp(s))
